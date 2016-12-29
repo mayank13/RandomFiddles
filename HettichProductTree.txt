@@ -1,0 +1,18 @@
+function scrapeAndRemoveClass(){
+    var arr = [];
+
+    arr = $('a.myElementTableCellTextAnker');
+    if( !arr.length ) return;
+    for (var i = 0 ; i < arr.length ; i++){
+        var jqObj = $(arr[i]);
+        jqObj.removeClass('myElementTableCellTextAnker');
+        jqObj.css('background-color','yellow');
+        jqObj.click();
+    }
+
+    setTimeout(function(){
+                    scrapeAndRemoveClass();
+                 },Math.random()*1000
+    )   
+}
+scrapeAndRemoveClass();
