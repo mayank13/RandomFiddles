@@ -1,3 +1,5 @@
+nodeLevel = 0 ;
+nodeNumber = 0 ;
 function scrapeAndRemoveClass(){
     var arr = [];
 
@@ -7,9 +9,12 @@ function scrapeAndRemoveClass(){
         var jqObj = $(arr[i]);
         jqObj.removeClass('myElementTableCellTextAnker');
         jqObj.css('background-color','yellow');
+        jqObj.attr('node-level',nodeLevel);
+        jqObj.attr('node-number',nodeNumber++)
+        console.log("-- On Node Level -- ",nodeLevel,"--",jqObj.text(),"--", jqObj.attr('href'));
         jqObj.click();
     }
-
+    nodeLevel++;
     setTimeout(function(){
                     scrapeAndRemoveClass();
                  },Math.random()*1000
